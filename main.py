@@ -1,4 +1,4 @@
-import discord, os, audioop, logic as l
+import discord, os, audioop, logic as l, commandapi as ca
 from dotenv import load_dotenv
 import random as r
 from discord.ext import commands
@@ -26,5 +26,14 @@ async def password(ctx, lenght = 25):
     x = l.contra(lenght)
     await ctx.send(f"🔐 su contraseña se ha generado: {x}")
 
+@bot.command(name= "momo")
+async def bromas(ctx):
+    x = l.momo()
+    await ctx.send(file = x)
+
+@bot.command(name= "pato")
+async def patos(ctx):
+    x = ca.duck_image()
+    await ctx.send(x)
 
 bot.run(token)
